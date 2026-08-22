@@ -29,7 +29,9 @@ const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replac
   <Header currentPath={currentPath} />
   <slot />
   <WhatsAppButton />
-  <Footer variant={footerVariant} />
+  <Footer variant={footerVariant}>
+    <slot name="footer-cta" slot="cta" />
+  </Footer>
 
   <script>
     const io = new IntersectionObserver(

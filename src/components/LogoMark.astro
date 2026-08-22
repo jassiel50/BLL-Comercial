@@ -3,13 +3,15 @@ interface Props {
   height?: number;
   opacity?: number;
   class?: string;
+  light?: boolean;
 }
-const { height = 28, opacity = 1, class: className = '' } = Astro.props;
+const { height = 28, opacity = 1, class: className = '', light = false } = Astro.props;
+const filter = light ? 'brightness(0) invert(1)' : 'none';
 ---
 <img
   src="/images/logo-bll.png"
   alt="BLL Servicios y Proyectos Industriales"
   height={height}
-  style={`height: ${height}px; width: auto; opacity: ${opacity}`}
+  style={`height: ${height}px; width: auto; opacity: ${opacity}; filter: ${filter}`}
   class={className}
 />
