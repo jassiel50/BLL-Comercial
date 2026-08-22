@@ -1,0 +1,15 @@
+---
+interface Props {
+  height?: number;
+  opacity?: number;
+  class?: string;
+}
+const { height = 28, opacity = 1, class: className = '' } = Astro.props;
+---
+<img
+  src="/images/logo-bll.png"
+  alt="BLL Servicios y Proyectos Industriales"
+  height={height}
+  style={`height: ${height}px; width: auto; opacity: ${opacity}`}
+  class={className}
+/>

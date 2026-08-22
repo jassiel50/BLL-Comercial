@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { WHATSAPP_URL } from '../data/site';
+
+const services = [
+  {
+    id: 'mecanica',
+    title: 'Mecánica',
+    body: 'Instalación, alineación y mantenimiento de maquinaria pesada e infraestructura mecánica para operación continua.',
+    img: '/images/servicios/mecanica-a.jpg',
+    tags: ['Alineación', 'Montaje de maquinaria', 'Mantenimiento predictivo'],
+  },
+  {
+    id: 'electrica',
+    title: 'Eléctrica',
+    body: 'Diseño, ensamble y despliegue de distribución de potencia y sistemas de control para entornos industriales.',
+    img: '/images/servicios/electrica-a.jpg',
+    tags: ['Tableros de control', 'Distribución de potencia', 'Cableado industrial'],
+  },
+  {
+    id: 'soldadura',
+    title: 'Soldadura',
+    body: 'Fabricación y unión de estructuras de acero con procesos certificados y control de calidad en cada cordón.',
+    img: '/images/servicios/soldadura-a.jpg',
+    tags: ['Estructura de acero', 'Fabricación a medida', 'Control de calidad'],
+  },
+  {
+    id: 'pintura',
+    title: 'Pintura industrial',
+    body: 'Recubrimientos y acabados protectores para estructuras y equipo, con procesos que extienden su vida útil.',
+    img: '/images/servicios/pintura-a.jpg',
+    tags: ['Recubrimientos', 'Protección anticorrosiva', 'Acabado industrial'],
+  },
+  {
+    id: 'arranque',
+    title: 'Arranque y puesta en marcha',
+    body: 'Pruebas, ajuste fino y arranque supervisado de líneas y equipos antes de la entrega final al cliente.',
+    img: '/images/servicios/arranque-a.jpg',
+    tags: ['Pruebas funcionales', 'Ajuste de línea', 'Entrega supervisada'],
+  },
+];
+
+const capabilities = [
+  'Mecánica', 'Eléctrica', 'Soldadura', 'Pintura industrial', 'Arranque y puesta en marcha',
+];
+
+const steps = [
+  { n: '01', title: 'Levantamiento', body: 'Visitamos el sitio y evaluamos el alcance técnico real del proyecto, sin compromiso.' },
+  { n: '02', title: 'Ingeniería y cotización', body: 'Definimos planos, materiales, tiempos y costos antes de mover una sola pieza.' },
+  { n: '03', title: 'Ejecución', body: 'Ejecutamos la obra en fases verificables, apegadas a protocolos de seguridad.' },
+  { n: '04', title: 'Arranque', body: 'Puesta en marcha supervisada y pruebas funcionales antes de la entrega.' },
+  { n: '05', title: 'Soporte', body: 'Acompañamiento posterior a la entrega para ajustes y mantenimiento.' },
+];
+---
+<Layout title="Servicios técnicos — BLL Servicios y Proyectos Industriales">
+  <main style="max-width: 1400px; margin: 0 auto; padding: 0 clamp(28px,6vw,64px)">
+    <section class="stack-mobile" style="padding: 32px 0 24px; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 40px; align-items: center">
+      <div>
+        <span class="card-kicker" style="display: block; margin-bottom: 16px">Servicios técnicos e integración</span>
+        <h1 style="font-size: clamp(28px,4.2vw,42px); margin: 0; max-width: 18ch">Soluciones de ingeniería que cubren mecánica y control eléctrico.</h1>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--color-neutral-700); max-width: 56ch; margin: 20px 0 0">Trabajamos con empresas que necesitan infraestructura industrial confiable — desde el montaje mecánico hasta el arranque supervisado — con ingeniería de precisión en cada fase.</p>
+        <div class="marquee" style="margin-top: 22px">
+          <div class="marquee-track">
+            {[...capabilities, ...capabilities].map((c) => (
+              <span style="display: inline-flex; align-items: center; flex: none; font-size: 12px; font-weight: 600; color: var(--color-primary-600); background: var(--color-surface-low); padding: 8px 14px; border-radius: 999px">{c}</span>
+            ))}
+          </div>
+        </div>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener" class="btn btn-accent" style="margin-top: 24px">Solicitar consulta técnica</a>
+      </div>
+      <div style="position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md)">
+        <img src="/images/proyectos/gantry-automatizado.jpg" alt="Sistema automatizado en planta industrial" class="img-cover" />
+        <div class="float-slow" style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; color: var(--color-primary-600); background: color-mix(in srgb, #fff 88%, transparent); backdrop-filter: blur(10px); border-radius: 999px; padding: 7px 13px">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex: none; animation: waPulse 2s ease-in-out infinite"></span>
+          Mecánica · Eléctrica · Control
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding: 40px 0 64px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px,100%),1fr)); gap: 20px">
+        {services.map((s) => (
+          <div id={s.id} class="card hover-lift" style="padding: 0; overflow: hidden; scroll-margin-top: 96px">
+            <div style="position: relative; width: 100%; aspect-ratio: 16/11; overflow: hidden">
+              <img src={s.img} alt={s.title} class="img-cover" />
+            </div>
+            <div style="padding: 22px">
+              <h2 class="card-title">{s.title}</h2>
+              <p class="card-body" style="margin-top: 6px">{s.body}</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--color-divider)">
+                {s.tags.map((t) => (
+                  <span class="tag tag-neutral">{t}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section data-reveal="1" style="padding: 40px 0 64px; border-top: 1px solid var(--color-divider)">
+      <h2 style="font-size: clamp(22px,2.6vw,28px); margin: 32px 0 32px">Cómo trabajamos</h2>
+      <div style="display: flex; flex-direction: column">
+        {steps.map((step) => (
+          <div style="display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 20px; padding: 20px 0; border-top: 1px solid var(--color-divider)">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 16px; color: var(--color-accent-600)">{step.n}</span>
+            <div>
+              <h3 style="font-size: 19px; margin: 0 0 6px">{step.title}</h3>
+              <p style="font-size: 15.5px; line-height: 1.6; color: var(--color-neutral-700); margin: 0; max-width: 54ch">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="padding: 0 0 96px">
+      <div class="card" style="flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <p style="margin: 0; font-size: 15px; color: var(--color-neutral-700); max-width: 42ch">¿Tienes una obra o instalación en mente? Conversemos sin compromiso.</p>
+        <a href="/contacto" class="btn btn-primary" style="white-space: nowrap">Hablemos</a>
+      </div>
+    </section>
+  </main>
+</Layout>

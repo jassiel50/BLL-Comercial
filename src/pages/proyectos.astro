@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    title: 'Estructura y fabricación de acero',
+    body: 'Líneas de perfilado, roladoras y ensamble de estructura para plantas industriales.',
+    items: [
+      { img: '/images/proyectos/linea-roladora.jpg', label: 'Línea roladora en operación' },
+      { img: '/images/proyectos/linea-perfiladora-equipo.jpg', label: 'Equipo de perfilado y manejo de acero' },
+      { img: '/images/proyectos/linea-transportadora.jpg', label: 'Línea transportadora de lámina' },
+      { img: '/images/proyectos/mantenimiento-mecanico.jpg', label: 'Mantenimiento de maquinaria pesada' },
+    ],
+  },
+  {
+    title: 'Automatización y sistemas robóticos',
+    body: 'Integración de manipuladores y sistemas gantry para procesos de alto volumen.',
+    items: [
+      { img: '/images/proyectos/sistema-gantry.jpg', label: 'Sistema gantry automatizado' },
+      { img: '/images/proyectos/gantry-automatizado.jpg', label: 'Manipulador robótico sobre rieles' },
+      { img: '/images/proyectos/brazo-robotico.jpg', label: 'Brazo robótico de proceso' },
+      { img: '/images/proyectos/sistema-extraccion.jpg', label: 'Sistema de extracción industrial' },
+    ],
+  },
+  {
+    title: 'Instalaciones eléctricas',
+    body: 'Tableros, distribución de potencia y canalización para plantas de manufactura.',
+    items: [
+      { img: '/images/proyectos/electrico-tablero-principal.jpg', label: 'Tablero de distribución principal' },
+      { img: '/images/proyectos/tablero-control-industrial.jpg', label: 'Tablero de control industrial' },
+      { img: '/images/proyectos/tablero-control-secundario.jpg', label: 'Tablero de control secundario' },
+      { img: '/images/proyectos/charola-cables.jpg', label: 'Charola de cableado' },
+      { img: '/images/proyectos/charola-trinchera.jpg', label: 'Canalización en trinchera' },
+    ],
+  },
+  {
+    title: 'Logística e instalación en sitio',
+    body: 'Coordinación de transporte pesado y montaje en planta.',
+    items: [
+      { img: '/images/proyectos/logistica-transporte.jpg', label: 'Transporte de equipo industrial' },
+      { img: '/images/proyectos/planta-interior.jpg', label: 'Montaje en sitio' },
+    ],
+  },
+];
+---
+<Layout title="Proyectos — BLL Servicios y Proyectos Industriales">
+  <main>
+    <section style="background: var(--color-primary-700); position: relative; overflow: hidden">
+      <video
+        id="proyectos-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="/images/proyectos/hero-planta.jpg"
+        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.38"
+      >
+        <source src="/videos/obra.mp4" type="video/mp4" />
+      </video>
+      <div class="wrap" style="position: relative; padding-block: 56px 64px">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); font-weight: 700; margin-bottom: 14px">Galería de trabajo</span>
+        <h1 style="color: #fff; font-size: clamp(28px,4vw,42px); margin: 0; max-width: 20ch">Capacidad instalada, mostrada en obra real.</h1>
+        <p style="font-size: 16px; color: color-mix(in srgb, #fff 78%, transparent); max-width: 56ch; margin: 18px 0 0">
+          Una muestra de nuestro trabajo en planta: fabricación de estructura, automatización, instalaciones
+          eléctricas y logística de sitio. Fotografía real de obra.
+        </p>
+      </div>
+    </section>
+
+    {categories.map((cat) => (
+      <section data-reveal="1" style="background: var(--color-bg)">
+        <div class="wrap" style="padding-block: 48px">
+          <h2 style="font-size: clamp(20px,2.4vw,26px); margin: 0 0 6px">{cat.title}</h2>
+          <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 28px; max-width: 60ch">{cat.body}</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%),1fr)); gap: 18px">
+            {cat.items.map((item) => (
+              <figure class="hover-lift" style="margin: 0; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); background: var(--color-surface)">
+                <div style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden">
+                  <img src={item.img} alt={item.label} class="img-cover" loading="lazy" />
+                </div>
+                <figcaption style="padding: 12px 14px; font-size: 13px; color: var(--color-neutral-700); margin: 0">{item.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section style="background: var(--color-surface)">
+      <div class="wrap" style="padding: 0 0 96px">
+        <div class="card" style="flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+          <p style="margin: 0; font-size: 15px; color: var(--color-neutral-700); max-width: 42ch">¿Quieres ver cómo aplicaríamos esta capacidad a tu proyecto?</p>
+          <a href="/contacto" class="btn btn-primary" style="white-space: nowrap">Hablemos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const video = document.getElementById('proyectos-video') as HTMLVideoElement | null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function syncMotion() {
+      if (!video) return;
+      if (prefersReducedMotion.matches) video.pause();
+      else video.play().catch(() => {});
+    }
+    syncMotion();
+    prefersReducedMotion.addEventListener('change', syncMotion);
+  </script>
+</Layout>

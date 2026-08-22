@@ -1,0 +1,11 @@
+---
+import { STATS } from '../data/site';
+---
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px,50%),1fr)); gap: 20px">
+  {STATS.map((s) => (
+    <div style="text-align: center; padding: 8px 12px">
+      <p style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px,3.4vw,38px); color: var(--color-primary-600); margin: 0">{s.value}</p>
+      <p style="font-size: 12.5px; letter-spacing: 0.03em; color: var(--color-neutral-700); margin: 4px 0 0">{s.label}</p>
+    </div>
+  ))}
+</div>

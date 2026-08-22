@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StatBar from '../components/StatBar.astro';
+import { WHATSAPP_URL } from '../data/site';
+
+const capabilities = [
+  { label: 'Ingeniería mecánica', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>' },
+  { label: 'Instalaciones eléctricas', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></svg>' },
+  { label: 'Soldadura y fabricación', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M247.42,117l-14-35a15.93,15.93,0,0,0-14.87-10H184V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V184a16,16,0,0,0,16,16H40a32,32,0,0,0,64,0h48a32,32,0,0,0,64,0h16a16,16,0,0,0,16-16V120A3.85,3.85,0,0,0,247.42,117ZM184,88h34.55l9.6,24H184ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,184,208Z"/></svg>' },
+  { label: 'Automatización y control', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M128,86a42,42,0,1,0,42,42A42,42,0,0,0,128,86Zm0,68a26,26,0,1,1,26-26A26,26,0,0,1,128,154ZM223.37,141.14l-13-7.51a87.5,87.5,0,0,0,0-11.26l13-7.51a8,8,0,0,0,3-10.86l-16-27.71a8,8,0,0,0-10.83-3l-13,7.49a87.62,87.62,0,0,0-19.5-11.25V54a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V69.55a87.62,87.62,0,0,0-19.5,11.25l-13-7.49a8,8,0,0,0-10.83,3l-16,27.71a8,8,0,0,0,3,10.86l13,7.51a87.5,87.5,0,0,0,0,11.26l-13,7.51a8,8,0,0,0-3,10.86l16,27.71a8,8,0,0,0,10.83,3l13-7.49a87.62,87.62,0,0,0,19.5,11.25V202a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V186.45a87.62,87.62,0,0,0,19.5-11.25l13,7.49a8,8,0,0,0,10.83-3l16-27.71A8,8,0,0,0,223.37,141.14Z"/></svg>' },
+  { label: 'Gestión de proyectos', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H216V88H40ZM40,200V104H216v96Z"/></svg>' },
+];
+
+const heroStats = [
+  { label: 'Obra en ejecución', value: 'Planta en Querétaro', color: 'var(--color-primary-600)' },
+  { label: 'Alcance', value: 'Mecánico + eléctrico', color: 'var(--color-accent-600)' },
+];
+
+const pillars = [
+  {
+    title: 'Ingeniería mecánica',
+    body: 'Instalación, montaje y mantenimiento de líneas de producción, maquinaria pesada y estructuras industriales.',
+    img: '/images/proyectos/mantenimiento-mecanico.jpg',
+    href: '/servicios#mecanica',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>',
+  },
+  {
+    title: 'Instalaciones eléctricas',
+    body: 'Diseño, montaje y puesta en marcha de tableros, distribución de potencia y sistemas de control eléctrico.',
+    img: '/images/proyectos/electrico-tablero-principal.jpg',
+    href: '/servicios#electrica',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></svg>',
+  },
+  {
+    title: 'Soldadura y fabricación',
+    body: 'Fabricación y ensamble de estructuras de acero, líneas roladoras y equipo especializado a medida.',
+    img: '/images/proyectos/linea-roladora.jpg',
+    href: '/servicios#soldadura',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M247.42,117l-14-35a15.93,15.93,0,0,0-14.87-10H184V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V184a16,16,0,0,0,16,16H40a32,32,0,0,0,64,0h48a32,32,0,0,0,64,0h16a16,16,0,0,0,16-16V120A3.85,3.85,0,0,0,247.42,117ZM184,88h34.55l9.6,24H184ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,184,208Z"/></svg>',
+  },
+];
+
+const steps = [
+  { n: '01', title: 'Análisis y diseño', body: 'Levantamiento en sitio, ingeniería de detalle y planos mecánicos/eléctricos antes de mover un solo material.' },
+  { n: '02', title: 'Procurement y logística', body: 'Sourcing de materiales de grado industrial y coordinación de transporte pesado hasta el sitio de obra.' },
+  { n: '03', title: 'Ejecución e instalación', body: 'Fases de construcción rigurosas, apegadas a protocolos de seguridad y tolerancias técnicas estrictas.' },
+];
+
+const projects = [
+  {
+    code: 'MEC // 01',
+    title: 'Línea de perfilado y roladora industrial',
+    summary: 'Instalación electromecánica completa de una línea de fabricación de acero, incluyendo montaje de maquinaria y puesta en marcha.',
+    tags: ['Mecánica', 'Automatización'],
+    imgSrc: '/images/proyectos/linea-roladora.jpg',
+  },
+  {
+    code: 'ELE // 02',
+    title: 'Tableros y distribución eléctrica de planta',
+    summary: 'Diseño, montaje y cableado de tableros de control y distribución de potencia para una planta manufacturera.',
+    tags: ['Eléctrica', 'Control'],
+    imgSrc: '/images/proyectos/tablero-control-industrial.jpg',
+  },
+  {
+    code: 'AUT // 03',
+    title: 'Sistema robótico tipo gantry',
+    summary: 'Integración de un sistema de manipulación automatizada sobre rieles para líneas de producción de alto volumen.',
+    tags: ['Automatización', 'Mecánica'],
+    imgSrc: '/images/proyectos/sistema-gantry.jpg',
+  },
+];
+---
+<Layout title="BLL Servicios y Proyectos Industriales — Ingeniería mecánica, eléctrica y de control" footerVariant="full">
+  <main>
+
+    <section class="wrap" style="padding-block: 20px 28px">
+      <div class="hero-panel stack-mobile" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 40px; align-items: center; background: var(--color-surface); border-left: 4px solid var(--color-primary-600); border-radius: var(--radius-lg); padding: clamp(20px,3.2vw,40px); box-shadow: var(--shadow-md)">
+        <div>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary-600); background: var(--color-primary-100); padding: 7px 14px; border-radius: 999px; margin-bottom: 16px">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent); flex: none; animation: waPulse 2s ease-in-out infinite"></span>
+            Disponible para nuevos proyectos
+          </span>
+          <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,4.2vw,46px); line-height: 1.1; letter-spacing: -0.02em; margin: 0; max-width: 20ch">Construyendo la <span style="color: var(--color-accent-600)">infraestructura</span> del mañana.</h1>
+          <p style="font-size: 16px; line-height: 1.65; color: var(--color-neutral-700); max-width: 52ch; margin: 16px 0 0">Ingeniería mecánica avanzada, instalaciones eléctricas y sistemas de control diseñados para escala, eficiencia e integridad estructural.</p>
+          <div class="marquee" style="margin-top: 20px">
+            <div class="marquee-track">
+              {[...capabilities, ...capabilities].map((c) => (
+                <span style="display: inline-flex; align-items: center; gap: 7px; flex: none; font-size: 12px; font-weight: 600; color: var(--color-primary-600); background: var(--color-surface-low); padding: 8px 14px; border-radius: 999px">
+                  <span style="color: var(--color-accent-600); display: inline-flex" set:html={c.icon} />
+                  {c.label}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px">
+            <a href="/proyectos" class="btn btn-primary">Explorar proyectos</a>
+            <a href="/nosotros" class="btn btn-secondary">Nuestra experiencia</a>
+          </div>
+        </div>
+        <div style="position: relative; width: 100%; aspect-ratio: 16/12; overflow: visible">
+          <div style="position: relative; width: 100%; height: 100%; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg)">
+            <img src="/images/proyectos/hero-planta.jpg" alt="Planta industrial con estructura de acero — BLL Servicios y Proyectos Industriales" class="img-cover" />
+          </div>
+          <div class="float-slow" style="position: absolute; top: -16px; right: 18px; display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; color: var(--color-primary-600); background: color-mix(in srgb, #fff 90%, transparent); backdrop-filter: blur(10px); border-radius: 999px; padding: 8px 14px; box-shadow: var(--shadow-md)">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex: none; animation: waPulse 2s ease-in-out infinite"></span>
+            Obra en ejecución
+          </div>
+          <div class="float-slow-delay" style="position: absolute; bottom: 14px; right: 14px; width: min(220px, 60%); pointer-events: none; background: color-mix(in srgb, #fff 88%, transparent); backdrop-filter: blur(10px); border-radius: var(--radius-sm); padding: 12px 14px; box-shadow: var(--shadow-md)">
+            {heroStats.map((s) => (
+              <div style="margin-bottom: 6px">
+                <span style="display: block; font-size: 9.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-neutral-600)">{s.label}</span>
+                <span style={`font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: ${s.color}`}>{s.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--color-surface)">
+      <div data-reveal="1" class="wrap" style="padding-block: 40px">
+        <StatBar />
+      </div>
+    </section>
+
+    <section style="background: var(--color-bg)">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px">
+        <span class="card-kicker" style="display: block; margin-bottom: 14px">Capacidades principales</span>
+        <h2 style="font-size: clamp(24px,3vw,34px); margin: 0 0 36px; max-width: 34ch">Soluciones de ingeniería integradas bajo un mismo equipo.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px,100%),1fr)); gap: 20px">
+          {pillars.map((p) => (
+            <a href={p.href} class="card hover-lift" style="text-decoration: none; padding: 0; overflow: hidden">
+              <div style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden">
+                <img src={p.img} alt={p.title} class="img-cover" />
+              </div>
+              <div style="padding: 24px">
+                <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--color-primary-100); display: flex; align-items: center; justify-content: center; color: var(--color-primary-600); margin-bottom: 14px" set:html={p.icon} />
+                <h3 class="card-title">{p.title}</h3>
+                <p class="card-body" style="margin-top: 6px">{p.body}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--color-section); color: #fff">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); font-weight: 700; margin-bottom: 14px">Metodología de ejecución</span>
+        <h2 style="color: #fff; font-size: clamp(24px,3vw,32px); margin: 0 0 40px; max-width: 34ch">De la ingeniería de detalle a la obra terminada.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%),1fr)); gap: 32px">
+          {steps.map((step, i) => (
+            <div style="position: relative; padding-top: 28px; border-top: 2px solid color-mix(in srgb, #fff 18%, transparent)">
+              <span style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; color: var(--color-accent); position: absolute; top: -14px; left: 0; background: var(--color-section); padding-right: 10px">{step.n}</span>
+              <h3 style="color: #fff; font-size: 19px; margin: 8px 0 8px">{step.title}</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #fff 75%, transparent); margin: 0; max-width: 34ch">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--color-bg)">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px">
+        <span class="card-kicker" style="display: block; margin-bottom: 14px">Trabajo reciente</span>
+        <h2 style="font-size: clamp(24px,3vw,32px); margin: 0 0 36px; max-width: 30ch">Proyectos que muestran nuestra capacidad instalada.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px,100%),1fr)); gap: 20px">
+          {projects.map((p) => (
+            <a href="/proyectos" class="card elev-sm hover-lift" style="text-decoration: none; color: inherit">
+              <div style="position: relative; width: 100%; aspect-ratio: 16/10; border-radius: var(--radius-sm); overflow: hidden; margin: -26px -26px 0">
+                <img src={p.imgSrc} alt={p.title} class="img-cover" />
+                <span style="position: absolute; top: 10px; left: 10px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--color-primary-600); background: color-mix(in srgb, #fff 88%, transparent); backdrop-filter: blur(10px); padding: 5px 10px; border-radius: 999px">{p.code}</span>
+              </div>
+              <h3 class="card-title" style="margin-top: 16px">{p.title}</h3>
+              <p class="card-body">{p.summary}</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 12px; margin-top: auto; border-top: 1px solid var(--color-divider)">
+                {p.tags.map((t) => (
+                  <span class="tag tag-neutral">{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+        <div style="text-align: center; margin-top: 36px">
+          <a href="/proyectos" class="btn btn-secondary">Ver toda la galería de proyectos →</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="position: relative; z-index: 0; overflow: hidden; background: linear-gradient(180deg, var(--color-primary-600), var(--color-primary-700) 240%)">
+      <div data-reveal="1" class="wrap" style="padding-block: 56px 88px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="color: #fff; font-size: clamp(22px,2.6vw,28px); margin: 0; max-width: 28ch">¿Tienes un proyecto de ingeniería mecánica o eléctrica en puerta?</h2>
+        <p style="font-size: 16px; color: color-mix(in srgb, #fff 78%, transparent); margin: 0; max-width: 48ch">Cuéntanos el alcance de tu obra y te ayudamos a evaluar el mejor camino técnico para ejecutarla.</p>
+        <div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener" class="btn btn-accent" style="margin-top: 8px">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
