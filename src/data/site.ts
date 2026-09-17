@@ -8,9 +8,12 @@ export const navLinks = [
   { label: 'Contacto', href: '/contacto' },
 ];
 
-// TODO(BLL): reemplazar con el número real de WhatsApp (formato internacional, sin espacios).
-export const WHATSAPP_URL = 'https://wa.me/PENDIENTE';
-export const WHATSAPP_DISPLAY = '[PENDIENTE — número de WhatsApp]';
+export const WHATSAPP_URL = 'https://wa.me/528125787691';
+export const WHATSAPP_DISPLAY = '+52 81 2578 7691';
+
+// WeChat de contacto (Ing. Baldemar López).
+export const WECHAT_CONTACT_NAME = 'Ing. Baldemar López';
+export const WECHAT_QR_IMAGE = '/images/wechat-baldemar-qr.png';
 
 // TODO(BLL): reemplazar con el correo real de contacto.
 export const CONTACT_EMAIL = 'contacto@PENDIENTE.mx';

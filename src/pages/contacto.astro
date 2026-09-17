@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import WhatsAppIcon from '../components/WhatsAppIcon.astro';
 import LogoMark from '../components/LogoMark.astro';
-import { WHATSAPP_URL, WHATSAPP_DISPLAY, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_ADDRESS } from '../data/site';
+import { WHATSAPP_URL, WHATSAPP_DISPLAY, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_ADDRESS, WECHAT_CONTACT_NAME, WECHAT_QR_IMAGE } from '../data/site';
 ---
 <Layout title="Contacto — BLL Servicios y Proyectos Industriales">
   <main>
@@ -30,6 +30,14 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, C
           </div>
           <span class="contact-arrow" style="color: var(--color-accent-600); transition: transform 0.2s ease">→</span>
         </a>
+        <div class="card" style="flex-direction: row; align-items: center; gap: 16px">
+          <img src={WECHAT_QR_IMAGE} alt="Código QR de WeChat" width="64" height="64" style="flex: none; border-radius: var(--radius-sm)" />
+          <div style="flex: 1; min-width: 0">
+            <h2 class="card-kicker" style="margin-bottom: 4px">WeChat</h2>
+            <p style="font-size: 15.5px; font-weight: 600; margin: 0">Escanea para agregarnos</p>
+            <p style="font-size: 13px; color: var(--color-neutral-600); margin: 2px 0 0">{WECHAT_CONTACT_NAME}</p>
+          </div>
+        </div>
         <a href={`mailto:${CONTACT_EMAIL}`} class="card contact-card" style="flex-direction: row; align-items: center; gap: 16px; text-decoration: none; color: inherit">
           <div style="width: 44px; height: 44px; flex: none; border-radius: var(--radius-sm); background: var(--color-primary-100); display: flex; align-items: center; justify-content: center; color: var(--color-primary-600)">
             <svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12.63,11.51a8,8,0,0,0,10.64,0l12.63-11.51L207.43,192H48.57ZM157.29,128,216,74.18V181.82Z"></path></svg>
