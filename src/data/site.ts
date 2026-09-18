@@ -15,14 +15,10 @@ export const WHATSAPP_DISPLAY = '+52 81 2578 7691';
 export const WECHAT_CONTACT_NAME = 'Ing. Baldemar López';
 export const WECHAT_QR_IMAGE = '/images/wechat-baldemar-qr.png';
 
-// TODO(BLL): reemplazar con el correo real de contacto.
-export const CONTACT_EMAIL = 'contacto@PENDIENTE.mx';
+export const CONTACT_EMAIL = 'soporte@bll.com.mx';
 
-// TODO(BLL): reemplazar con el teléfono real de oficina.
-export const CONTACT_PHONE_DISPLAY = '[PENDIENTE — teléfono]';
-
-// TODO(BLL): reemplazar con la dirección/ciudad real de la planta u oficina.
-export const CONTACT_ADDRESS = '[PENDIENTE — dirección, ciudad, estado]';
+// No hay teléfono de oficina — cada quien usa su celular personal (WhatsApp es el canal directo).
+export const CONTACT_ADDRESS = 'Av. Francisco Sarabia 126, Col. Nueva Libertad, Guadalupe, N.L., C.P. 67120';
 
 // TODO(BLL): confirmar cifras reales; estas son placeholders de marketing tomados
 // del mockup de referencia, editables antes de publicar el sitio.
