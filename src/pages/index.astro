@@ -4,46 +4,47 @@ import StatBar from '../components/StatBar.astro';
 import { WHATSAPP_URL } from '../data/site';
 
 const capabilities = [
-  { label: 'Ingeniería mecánica', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>' },
   { label: 'Instalaciones eléctricas', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></svg>' },
-  { label: 'Soldadura y fabricación', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M247.42,117l-14-35a15.93,15.93,0,0,0-14.87-10H184V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V184a16,16,0,0,0,16,16H40a32,32,0,0,0,64,0h48a32,32,0,0,0,64,0h16a16,16,0,0,0,16-16V120A3.85,3.85,0,0,0,247.42,117ZM184,88h34.55l9.6,24H184ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,184,208Z"/></svg>' },
-  { label: 'Automatización y control', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M128,86a42,42,0,1,0,42,42A42,42,0,0,0,128,86Zm0,68a26,26,0,1,1,26-26A26,26,0,0,1,128,154ZM223.37,141.14l-13-7.51a87.5,87.5,0,0,0,0-11.26l13-7.51a8,8,0,0,0,3-10.86l-16-27.71a8,8,0,0,0-10.83-3l-13,7.49a87.62,87.62,0,0,0-19.5-11.25V54a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V69.55a87.62,87.62,0,0,0-19.5,11.25l-13-7.49a8,8,0,0,0-10.83,3l-16,27.71a8,8,0,0,0,3,10.86l13,7.51a87.5,87.5,0,0,0,0,11.26l-13,7.51a8,8,0,0,0-3,10.86l16,27.71a8,8,0,0,0,10.83,3l13-7.49a87.62,87.62,0,0,0,19.5,11.25V202a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V186.45a87.62,87.62,0,0,0,19.5-11.25l13,7.49a8,8,0,0,0,10.83-3l16-27.71A8,8,0,0,0,223.37,141.14Z"/></svg>' },
-  { label: 'Gestión de proyectos', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H216V88H40ZM40,200V104H216v96Z"/></svg>' },
+  { label: 'Instalaciones mecánicas', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>' },
+  { label: 'Hidráulica y neumática', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M247.42,117l-14-35a15.93,15.93,0,0,0-14.87-10H184V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V184a16,16,0,0,0,16,16H40a32,32,0,0,0,64,0h48a32,32,0,0,0,64,0h16a16,16,0,0,0,16-16V120A3.85,3.85,0,0,0,247.42,117ZM184,88h34.55l9.6,24H184ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,184,208Z"/></svg>' },
+  { label: 'Automatización y programación', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M128,86a42,42,0,1,0,42,42A42,42,0,0,0,128,86Zm0,68a26,26,0,1,1,26-26A26,26,0,0,1,128,154ZM223.37,141.14l-13-7.51a87.5,87.5,0,0,0,0-11.26l13-7.51a8,8,0,0,0,3-10.86l-16-27.71a8,8,0,0,0-10.83-3l-13,7.49a87.62,87.62,0,0,0-19.5-11.25V54a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V69.55a87.62,87.62,0,0,0-19.5,11.25l-13-7.49a8,8,0,0,0-10.83,3l-16,27.71a8,8,0,0,0,3,10.86l13,7.51a87.5,87.5,0,0,0,0,11.26l-13,7.51a8,8,0,0,0-3,10.86l16,27.71a8,8,0,0,0,10.83,3l13-7.49a87.62,87.62,0,0,0,19.5,11.25V202a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V186.45a87.62,87.62,0,0,0,19.5-11.25l13,7.49a8,8,0,0,0,10.83-3l16-27.71A8,8,0,0,0,223.37,141.14Z"/></svg>' },
+  { label: 'Mantenimiento industrial', icon: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H216V88H40ZM40,200V104H216v96Z"/></svg>' },
 ];
 
 const heroStats = [
-  { label: 'Obra en ejecución', value: 'Planta en Querétaro', color: 'var(--color-primary-600)' },
-  { label: 'Alcance', value: 'Mecánico + eléctrico', color: 'var(--color-accent-600)' },
+  { label: 'Alcance', value: 'México, Colombia, Guatemala, EUA', color: 'var(--color-primary-600)' },
+  { label: 'Enfoque', value: 'Proyectos industriales integrales', color: 'var(--color-accent-600)' },
 ];
 
 const pillars = [
   {
-    title: 'Ingeniería mecánica',
-    body: 'Instalación, montaje y mantenimiento de líneas de producción, maquinaria pesada y estructuras industriales.',
-    img: '/images/proyectos/mantenimiento-mecanico.jpg',
+    title: 'Soluciones mecánicas',
+    body: 'Montaje e instalación de maquinaria, modificación y fabricación de componentes, alineación y mantenimiento mecánico.',
+    img: '/images/real/nave-industrial-1.jpg',
     href: '/servicios#mecanica',
     icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>',
   },
   {
-    title: 'Instalaciones eléctricas',
-    body: 'Diseño, montaje y puesta en marcha de tableros, distribución de potencia y sistemas de control eléctrico.',
-    img: '/images/proyectos/electrico-tablero-principal.jpg',
+    title: 'Soluciones eléctricas',
+    body: 'Tableros eléctricos y de control, cableado de fuerza, motores y variadores, diagnóstico y corrección de fallas.',
+    img: '/images/real/tablero-electrico-2.jpg',
     href: '/servicios#electrica',
     icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></svg>',
   },
   {
-    title: 'Soldadura y fabricación',
-    body: 'Fabricación y ensamble de estructuras de acero, líneas roladoras y equipo especializado a medida.',
-    img: '/images/proyectos/linea-roladora.jpg',
-    href: '/servicios#soldadura',
-    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M247.42,117l-14-35a15.93,15.93,0,0,0-14.87-10H184V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V184a16,16,0,0,0,16,16H40a32,32,0,0,0,64,0h48a32,32,0,0,0,64,0h16a16,16,0,0,0,16-16V120A3.85,3.85,0,0,0,247.42,117ZM184,88h34.55l9.6,24H184ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm112,0a16,16,0,1,1,16-16A16,16,0,0,1,184,208Z"/></svg>',
+    title: 'Automatización y programación',
+    body: 'Programación de PLC, configuración de sistemas de control, sensores, actuadores e integración de equipos.',
+    img: '/images/real/hmi-panel-control.jpg',
+    href: '/servicios#automatizacion',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,86a42,42,0,1,0,42,42A42,42,0,0,0,128,86Zm0,68a26,26,0,1,1,26-26A26,26,0,0,1,128,154ZM223.37,141.14l-13-7.51a87.5,87.5,0,0,0,0-11.26l13-7.51a8,8,0,0,0,3-10.86l-16-27.71a8,8,0,0,0-10.83-3l-13,7.49a87.62,87.62,0,0,0-19.5-11.25V54a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V69.55a87.62,87.62,0,0,0-19.5,11.25l-13-7.49a8,8,0,0,0-10.83,3l-16,27.71a8,8,0,0,0,3,10.86l13,7.51a87.5,87.5,0,0,0,0,11.26l-13,7.51a8,8,0,0,0-3,10.86l16,27.71a8,8,0,0,0,10.83,3l13-7.49a87.62,87.62,0,0,0,19.5,11.25V202a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V186.45a87.62,87.62,0,0,0,19.5-11.25l13,7.49a8,8,0,0,0,10.83-3l16-27.71A8,8,0,0,0,223.37,141.14Z"/></svg>',
   },
 ];
 
 const steps = [
-  { n: '01', title: 'Análisis y diseño', body: 'Levantamiento en sitio, ingeniería de detalle y planos mecánicos/eléctricos antes de mover un solo material.' },
-  { n: '02', title: 'Procurement y logística', body: 'Sourcing de materiales de grado industrial y coordinación de transporte pesado hasta el sitio de obra.' },
-  { n: '03', title: 'Ejecución e instalación', body: 'Fases de construcción rigurosas, apegadas a protocolos de seguridad y tolerancias técnicas estrictas.' },
+  { n: '01', title: 'Ingeniería', body: 'Levantamiento en sitio e ingeniería de detalle para definir el alcance técnico real del proyecto.' },
+  { n: '02', title: 'Ejecución', body: 'Fases de construcción rigurosas, apegadas a protocolos de seguridad y tolerancias técnicas estrictas.' },
+  { n: '03', title: 'Integración', body: 'Integramos eléctrico, mecánico, hidráulico, neumático y automatización en un mismo equipo.' },
+  { n: '04', title: 'Pruebas y puesta en marcha', body: 'Pruebas funcionales y acompañamiento hasta la puesta en marcha, con soporte técnico posterior.' },
 ];
 
 const projects = [
@@ -52,21 +53,21 @@ const projects = [
     title: 'Línea de perfilado y roladora industrial',
     summary: 'Instalación electromecánica completa de una línea de fabricación de acero, incluyendo montaje de maquinaria y puesta en marcha.',
     tags: ['Mecánica', 'Automatización'],
-    imgSrc: '/images/proyectos/linea-roladora.jpg',
+    imgSrc: '/images/real/linea-produccion-1.jpg',
   },
   {
     code: 'ELE // 02',
     title: 'Tableros y distribución eléctrica de planta',
     summary: 'Diseño, montaje y cableado de tableros de control y distribución de potencia para una planta manufacturera.',
     tags: ['Eléctrica', 'Control'],
-    imgSrc: '/images/proyectos/tablero-control-industrial.jpg',
+    imgSrc: '/images/real/tablero-electrico-3.jpg',
   },
   {
     code: 'AUT // 03',
     title: 'Sistema robótico tipo gantry',
     summary: 'Integración de un sistema de manipulación automatizada sobre rieles para líneas de producción de alto volumen.',
     tags: ['Automatización', 'Mecánica'],
-    imgSrc: '/images/proyectos/sistema-gantry.jpg',
+    imgSrc: '/images/real/torre-transportadora.jpg',
   },
 ];
 ---

@@ -2,27 +2,58 @@
 import Layout from '../layouts/Layout.astro';
 import StatBar from '../components/StatBar.astro';
 
+const propuesta = [
+  'Personal técnico especializado.',
+  'Atención a necesidades específicas.',
+  'Proyectos puntuales e integrales.',
+  'Enfoque en calidad y cumplimiento.',
+];
+
 const values = [
   {
-    title: 'Seguridad primero',
-    body: 'Cada fase de obra sigue protocolos de seguridad estrictos, sin importar la presión de tiempos.',
-    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,80.36,75.8,113.28,91.36,119.4a15.94,15.94,0,0,0,9.28,0C148.2,228.06,224,195.14,224,114.78V56A16,16,0,0,0,208,40Zm-33.66,74.34-56,56a8,8,0,0,1-11.31,0l-24-24a8,8,0,1,1,11.31-11.31L112,152.69l50.34-50.35a8,8,0,1,1,11.32,11.32Z"/></svg>',
+    title: 'Compromiso',
+    body: 'Cumplimos nuestros acuerdos y asumimos cada proyecto con responsabilidad.',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172.72,170a8,8,0,0,1,3.4-15.72,60,60,0,0,0,29-113.85,8,8,0,0,1,4.24-15.42,76,76,0,0,1,53.29,140.1,95.86,95.86,0,0,1,46.68,37.57A8,8,0,0,1,250.14,206.7Z"/></svg>',
   },
   {
-    title: 'Precisión técnica',
-    body: 'Ingeniería de detalle y tolerancias estrictas en cada instalación mecánica y eléctrica.',
-    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M226.53,56.41a8,8,0,0,0-9-1.41l-40,20a8,8,0,0,0-4.41,7.14v33.72L104,148.56V88a8,8,0,0,0-4.41-7.14l-64-32a8,8,0,0,0-11.18,10.7L32,66.94v122.1l-7.59,3.8a8,8,0,0,0,3.18,15.32,7.9,7.9,0,0,0,3.58-.86l64-32A8,8,0,0,0,100,168V107.44l69.12-34.56L232,105.06,169.12,136.5l-8.53-4.27a8,8,0,0,0-7.16,14.31l64,32A8,8,0,0,0,224,176V85.72l7.59-3.8A8,8,0,0,0,226.53,56.41Z"/></svg>',
-  },
-  {
-    title: 'Cumplimiento normativo',
-    body: 'Procesos alineados a estándares industriales, con documentación técnica clara para cada entrega.',
+    title: 'Calidad',
+    body: 'Buscamos que cada trabajo cumpla con los estándares técnicos requeridos.',
     icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32Z"/></svg>',
   },
   {
-    title: 'Compromiso con el cliente',
-    body: 'Acompañamos cada proyecto de principio a fin, con comunicación clara en cada fase de obra.',
-    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172.72,170a8,8,0,0,1,3.4-15.72,60,60,0,0,0,29-113.85,8,8,0,0,1,4.24-15.42,76,76,0,0,1,53.29,140.1,95.86,95.86,0,0,1,46.68,37.57A8,8,0,0,1,250.14,206.7Z"/></svg>',
+    title: 'Seguridad',
+    body: 'Priorizamos la seguridad de nuestro personal, clientes e instalaciones.',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,80.36,75.8,113.28,91.36,119.4a15.94,15.94,0,0,0,9.28,0C148.2,228.06,224,195.14,224,114.78V56A16,16,0,0,0,208,40Zm-33.66,74.34-56,56a8,8,0,0,1-11.31,0l-24-24a8,8,0,1,1,11.31-11.31L112,152.69l50.34-50.35a8,8,0,1,1,11.32,11.32Z"/></svg>',
   },
+  {
+    title: 'Innovación',
+    body: 'Buscamos nuevas alternativas para mejorar procesos y soluciones industriales.',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M176,240a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,240Zm40-152a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,169.92V184a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16V169.92a16,16,0,0,0-6.23-12.68A87.59,87.59,0,0,1,40,88.29C39.69,42.87,76.19,4.69,121.53,4A88,88,0,0,1,216,88Z"/></svg>',
+  },
+  {
+    title: 'Trabajo en equipo',
+    body: 'Integramos diferentes especialidades para alcanzar mejores resultados.',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></svg>',
+  },
+  {
+    title: 'Confianza',
+    body: 'Construimos relaciones basadas en transparencia, responsabilidad y resultados.',
+    icon: '<svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Z"/></svg>',
+  },
+];
+
+const alcance = [
+  { title: 'México', body: 'Base de operación y mayor concentración de proyectos.' },
+  { title: 'Colombia · Guatemala · Estados Unidos', body: 'Proyectos y servicios para clientes internacionales.' },
+];
+
+const porQueBll = [
+  'Experiencia técnica en entorno industrial.',
+  'Personal especializado y multidisciplinario.',
+  'Soluciones integrales en un solo equipo.',
+  'Atención a clientes nacionales e internacionales.',
+  'Compromiso con calidad, seguridad y cumplimiento.',
+  'Capacidad de respuesta y soporte técnico.',
 ];
 ---
 <Layout title="Nosotros — BLL Servicios y Proyectos Industriales" footerVariant="full">
@@ -30,15 +61,22 @@ const values = [
     <section class="stack-mobile wrap" style="padding: 40px 0 24px; display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: 40px; align-items: center">
       <div>
         <span class="card-kicker" style="display: block; margin-bottom: 16px">Quiénes somos</span>
-        <h1 style="font-size: clamp(28px,4.2vw,42px); margin: 0; max-width: 18ch">Ingeniería industrial con enfoque de ejecución.</h1>
+        <h1 style="font-size: clamp(28px,4.2vw,42px); margin: 0; max-width: 18ch">Experiencia, capacidad técnica y soluciones orientadas a resultados.</h1>
         <p style="font-size: 16px; line-height: 1.7; color: var(--color-neutral-700); max-width: 54ch; margin: 20px 0 0">
-          BLL Servicios y Proyectos Industriales integra ingeniería mecánica, eléctrica y de control bajo un mismo
-          equipo, para llevar proyectos de infraestructura industrial desde el diseño hasta la puesta en marcha —
-          con la seguridad y precisión técnica que exige la operación continua de una planta.
+          Servicios y Proyectos Industriales BLL es una empresa especializada en brindar soluciones integrales para
+          el sector industrial, enfocada en instalaciones, integración, mantenimiento y puesta en marcha de
+          maquinaria y procesos industriales.
         </p>
+        <ul style="list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px,100%),1fr)); gap: 10px">
+          {propuesta.map((p) => (
+            <li style="display: flex; align-items: baseline; gap: 8px; font-size: 14.5px; color: var(--color-neutral-700)">
+              <span style="color: var(--color-accent-600); font-weight: 700; flex: none">✓</span>{p}
+            </li>
+          ))}
+        </ul>
       </div>
       <div style="position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md)">
-        <img src="/images/proyectos/planta-interior.jpg" alt="Interior de planta industrial" class="img-cover" />
+        <img src="/images/real/taller-instalacion-2.jpg" alt="Instalación de estructura y equipo en planta industrial" class="img-cover" />
       </div>
     </section>
 
@@ -49,9 +87,36 @@ const values = [
     </section>
 
     <section style="background: var(--color-bg)">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px,100%),1fr)); gap: 40px">
+        <div>
+          <span class="card-kicker" style="display: block; margin-bottom: 14px">Misión</span>
+          <h2 style="font-size: clamp(20px,2.4vw,26px); margin: 0 0 14px">Nuestro compromiso con cada cliente.</h2>
+          <p style="font-size: 15.5px; line-height: 1.7; color: var(--color-neutral-700); margin: 0">
+            Brindar soluciones industriales integrales, confiables y eficientes, mediante la aplicación de
+            ingeniería, experiencia técnica y personal especializado, atendiendo las necesidades de nuestros
+            clientes en instalaciones, automatización, mantenimiento y puesta en marcha de maquinaria, con un
+            firme compromiso con la calidad, seguridad y cumplimiento.
+          </p>
+        </div>
+        <div>
+          <span class="card-kicker" style="display: block; margin-bottom: 14px">Visión</span>
+          <h2 style="font-size: clamp(20px,2.4vw,26px); margin: 0 0 14px">Hacia dónde queremos llevar a BLL.</h2>
+          <p style="font-size: 15.5px; line-height: 1.7; color: var(--color-neutral-700); margin: 0">
+            Ser una empresa líder y referente en soluciones y servicios industriales, reconocida por nuestra
+            capacidad técnica, innovación, confiabilidad y compromiso, ampliando continuamente nuestra presencia
+            a nivel nacional e internacional y construyendo relaciones a largo plazo con nuestros clientes.
+          </p>
+          <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary-600); margin: 16px 0 0">
+            Crecer · Innovar · Integrar · Trascender
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--color-surface)">
       <div data-reveal="1" class="wrap" style="padding-block: 64px">
-        <span class="card-kicker" style="display: block; margin-bottom: 14px">Nuestros principios</span>
-        <h2 style="font-size: clamp(22px,2.8vw,30px); margin: 0 0 36px; max-width: 30ch">Lo que guía cada proyecto que ejecutamos.</h2>
+        <span class="card-kicker" style="display: block; margin-bottom: 14px">Nuestros valores</span>
+        <h2 style="font-size: clamp(22px,2.8vw,30px); margin: 0 0 36px; max-width: 30ch">La forma en la que trabajamos y construimos relaciones.</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%),1fr)); gap: 28px">
           {values.map((v) => (
             <div>
@@ -64,14 +129,47 @@ const values = [
       </div>
     </section>
 
+    <section style="background: var(--color-section); color: #fff">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); font-weight: 700; margin-bottom: 14px">Alcance nacional e internacional</span>
+        <h2 style="color: #fff; font-size: clamp(22px,2.8vw,30px); margin: 0 0 36px; max-width: 38ch">Atendemos proyectos y servicios para clientes nacionales e internacionales.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px,100%),1fr)); gap: 24px">
+          {alcance.map((a) => (
+            <div style="border-radius: var(--radius-md); border: 1px solid color-mix(in srgb, #fff 18%, transparent); padding: 24px">
+              <h3 style="color: #fff; font-size: 19px; margin: 0 0 8px">{a.title}</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: color-mix(in srgb, #fff 75%, transparent); margin: 0">{a.body}</p>
+            </div>
+          ))}
+        </div>
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); margin: 32px 0 0">
+          Respuesta · Calidad · Compromiso · Relaciones a largo plazo
+        </p>
+      </div>
+    </section>
+
+    <section style="background: var(--color-bg)">
+      <div data-reveal="1" class="wrap" style="padding-block: 64px">
+        <span class="card-kicker" style="display: block; margin-bottom: 14px">¿Por qué BLL?</span>
+        <h2 style="font-size: clamp(22px,2.8vw,30px); margin: 0 0 36px; max-width: 32ch">Una propuesta enfocada en resultados y continuidad operativa.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%),1fr)); gap: 16px">
+          {porQueBll.map((item) => (
+            <div style="display: flex; align-items: center; gap: 12px; background: var(--color-surface); border-radius: var(--radius-md); padding: 18px 20px; box-shadow: var(--shadow-sm)">
+              <span style="color: var(--color-accent-600); font-weight: 800; font-size: 18px; flex: none">✓</span>
+              <span style="font-size: 15px; font-weight: 600; color: var(--color-primary-700)">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section data-reveal="1" style="background: var(--color-bg)">
       <div class="wrap" style="padding-block: 0 64px">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%),1fr)); gap: 18px">
           <div style="position: relative; aspect-ratio: 4/3; border-radius: var(--radius-md); overflow: hidden; grid-column: span 2">
-            <img src="/images/proyectos/linea-roladora.jpg" alt="Equipo trabajando en línea de fabricación" class="img-cover" />
+            <img src="/images/real/nave-industrial-1.jpg" alt="Nave industrial con línea de producción" class="img-cover" />
           </div>
           <div style="position: relative; aspect-ratio: 4/3; border-radius: var(--radius-md); overflow: hidden">
-            <img src="/images/proyectos/electrico-tablero-principal.jpg" alt="Instalación eléctrica industrial" class="img-cover" />
+            <img src="/images/real/tablero-electrico-1.jpg" alt="Tablero eléctrico industrial" class="img-cover" />
           </div>
         </div>
       </div>
